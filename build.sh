@@ -16,15 +16,11 @@ wget \
 tar xf mecab.tar.gz
 cd mecab-*
 sed -i.bak -e 's,ipadic,naist-jdic,g' mecabrc.in
-if [ `uname -m` =  "aarch64" ]; then 
-  ./configure \
-    --prefix=/usr/local \
-    --build=arm-unknown-linux-gnu \
-    --host=arm-unknown-linux-gnu \
-    --target=arm-unknown-linux-gnu
-else
-  ./configure --prefix=/usr/local
-fi
+./configure \
+  --prefix=/usr/local \
+  --build=arm-unknown-linux-gnu \
+  --host=arm-unknown-linux-gnu \
+  --target=arm-unknown-linux-gnu
 make -j$(nproc)
 make install
 cd -
@@ -34,18 +30,12 @@ wget \
   "https://ja.osdn.net/frs/redir.php?m=nchc&f=naist-jdic%2F53500%2Fmecab-naist-jdic-0.6.3b-20111013.tar.gz"
 tar xf mecab-naist-jdic.tar.gz
 cd mecab-naist-jdic-*
-if [ `uname -m` =  "aarch64" ]; then
-  ./configure \
-    --prefix=/usr/local \
-    --with-charset=utf-8 \
-    --build=arm-unknown-linux-gnu \
-    --host=arm-unknown-linux-gnu \
-    --target=arm-unknown-linux-gnu
-else
-  ./configure \
-    --prefix=/usr/local \
-    --with-charset=utf-8
-fi
+./configure \
+  --prefix=/usr/local \
+  --with-charset=utf-8 \
+  --build=arm-unknown-linux-gnu \
+  --host=arm-unknown-linux-gnu \
+  --target=arm-unknown-linux-gnu
 make -j$(nproc)
 make install
 cd -
