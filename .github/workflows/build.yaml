@@ -27,3 +27,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ghcr.io/ry0tak/pgroonga-arm:latest
+          platforms: linux/arm64
