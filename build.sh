@@ -57,7 +57,7 @@ cd -
 wget https://packages.groonga.org/source/pgroonga/pgroonga-${PGROONGA_VERSION}.tar.gz
 tar xf pgroonga-${PGROONGA_VERSION}.tar.gz
 cd pgroonga-${PGROONGA_VERSION}
-make HAVE_MSGPACK=1 -j$(nproc)
+make PGRN_DEBUG=yes HAVE_MSGPACK=1 MSGPACK_PACKAGE_NAME=msgpack-c -j$(nproc)
 make install
 cd -
 
