@@ -10,9 +10,7 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-22.04
-
     steps:
-    
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@c4ee3adeed93b1fa6a762f209fb01608c1a22f1e
@@ -26,6 +24,7 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
             type=sha
+
       - name: Setup QEMU
         uses: docker/setup-qemu-action@e81a89b1732b9c48d79cd809d8d81d79c4647a18
     
